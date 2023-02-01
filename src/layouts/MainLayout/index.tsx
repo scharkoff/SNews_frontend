@@ -2,6 +2,7 @@ import { Grid } from "@mui/material";
 import React from "react";
 import styles from "./MainLayout.module.scss";
 import { LeftMenu } from "../../components/LeftMenu/index";
+import { CommentsBlock } from "../../components/CommentsBlock/index";
 
 interface IMainLayoutProps {
   children?: any;
@@ -18,15 +19,15 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
 }) => {
   return (
     <div>
-      <Grid container spacing={2}>
+      <Grid container spacing={2} paddingTop={2}>
         <Grid item xs={2}>
           <LeftMenu />
         </Grid>
         <Grid item xs={8}>
-          <p>center Ssfaf</p>
+          <p></p>
         </Grid>
         <Grid item xs={2}>
-          <p>rigth c</p>
+          <CommentsBlock />
         </Grid>
       </Grid>
     </div>
