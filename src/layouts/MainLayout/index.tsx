@@ -1,16 +1,29 @@
 import { Grid } from "@mui/material";
 import React from "react";
 import styles from "./MainLayout.module.scss";
+import { LeftMenu } from "../../components/LeftMenu/index";
 
-export default function MainLayout() {
+interface IMainLayoutProps {
+  children?: any;
+  hideComments?: boolean;
+  contentFullWidth?: boolean;
+  className?: string;
+}
+
+export const MainLayout: React.FC<IMainLayoutProps> = ({
+  children,
+  contentFullWidth,
+  hideComments,
+  className,
+}) => {
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={2}>
-          <p>left c</p>
+          <LeftMenu />
         </Grid>
         <Grid item xs={8}>
-          <p>center c</p>
+          <p>center Ssfaf</p>
         </Grid>
         <Grid item xs={2}>
           <p>rigth c</p>
@@ -18,4 +31,4 @@ export default function MainLayout() {
       </Grid>
     </div>
   );
-}
+};

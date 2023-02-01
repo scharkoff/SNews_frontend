@@ -2,16 +2,16 @@ import { TextField } from "@mui/material";
 import React from "react";
 import styles from "./SearchField.module.scss";
 
-export default function SearchField() {
+export const SearchField: React.FC = () => {
   return (
     <>
-      <TextField
-        variant="outlined"
-        id="search"
-        label="Поиск..."
-        value=""
+      <input
+        type="search"
+        name="searchField"
+        id="searchField"
+        placeholder="Поиск..."
         className={styles.searchField}
       />
     </>
   );
-}
+};

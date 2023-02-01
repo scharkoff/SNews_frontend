@@ -1,0 +1,26 @@
+@import "../../styles/colors/colors.module";
+
+.listItem {
+    padding: 7px 15px;
+    margin: 10px 0;
+    list-style: none;
+    cursor: pointer;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+}
+
+
+.stack {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.menu {
+    // padding: 20px;
+}
+

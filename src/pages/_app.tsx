@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { ThemeProvider } from "@mui/material";
 import { theme } from "theme";
-import Header from "../components/Header/index";
+import { Header } from "../components/Header/index";
 import Meta from "../utils/Meta";
 
 // -- Global styles

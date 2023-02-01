@@ -8,9 +8,9 @@ export const theme = createTheme({
         dark: "rgb(255, 153, 80)",
       },
       secondary: {
-        main: "rgb(228, 228, 228)",
-        light:"#fff",
-        dark: "rgb(204, 204, 204)",
+        main: "#fff",
+        light:"rgb(228, 228, 228)",
+        dark: "rgb(240, 240, 240)",
       },
     },
 });
