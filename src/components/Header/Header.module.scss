@@ -1,0 +1,10 @@
+@import "../../styles/colors/colors.module";
+
+.header {
+    display: flex;
+    align-items: center;
+    vertical-align: center;
+    padding: 10px;
+    background-color: $secondary;
+
+}

@@ -13,7 +13,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Meta
         title="SNews - главная страница"
         description="SNews - новостной форум"
-        link="favicon.ico"
+        link="icon.ico"
       />
       <ThemeProvider theme={theme}>
         <Header />
