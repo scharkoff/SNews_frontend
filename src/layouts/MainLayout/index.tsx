@@ -23,8 +23,8 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
         <Grid item xs={2}>
           <LeftMenu />
         </Grid>
-        <Grid item xs={8}>
-          <p></p>
+        <Grid item xs={8} justifyContent={"center"}>
+          {children}
         </Grid>
         <Grid item xs={2}>
           <CommentsBlock />

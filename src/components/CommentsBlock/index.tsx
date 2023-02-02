@@ -31,6 +31,7 @@ export const CommentsBlock: React.FC = () => {
       </Stack>
 
       <List
+        disablePadding
         sx={{
           width: "100%",
           maxWidth: 360,

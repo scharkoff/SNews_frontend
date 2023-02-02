@@ -1,3 +1,5 @@
+@import "./colors/colors.module";
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -9,10 +11,12 @@ body {
   min-height: 100vh;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+  background-color: $background-grey;
 }
 
 a {
   text-decoration: none;
+  color: #000;
 }
 
 
