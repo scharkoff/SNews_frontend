@@ -5,23 +5,28 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import styles from "./Comment.module.scss";
 
-interface IComment {
-  userName: string;
+interface ICommentItem {
+  user: {
+    fullName: string;
+  };
   text: string;
+  post: {
+    title: string;
+  };
 }
 
-export const Comment: React.FC<IComment> = ({ userName, text }) => {
+export const Comment: React.FC<ICommentItem> = ({ user, text, post }) => {
   return (
     <ListItem alignItems="flex-start" disablePadding className={styles.comment}>
       <ListItemAvatar>
         <Avatar
-          alt={userName}
+          alt={user.fullName}
           src="/static/images/avatar/1.jpg"
           variant="rounded"
         />
       </ListItemAvatar>
       <ListItemText
-        primary={userName}
+        primary={user.fullName}
         secondary={<React.Fragment>{text}</React.Fragment>}
       />
     </ListItem>

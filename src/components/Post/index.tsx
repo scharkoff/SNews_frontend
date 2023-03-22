@@ -12,7 +12,6 @@ import Typography from "@mui/material/Typography";
 import styles from "./Post.module.scss";
 import Image from "next/image";
 import { PostActions } from "../PostActions/index";
-import ImageIcon from "@mui/icons-material/Image";
 
 export const Post: React.FC = () => {
   return (

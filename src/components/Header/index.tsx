@@ -25,10 +25,10 @@ export const Header: React.FC = () => {
             </Link>
           </Stack>
         </Grid>
-        <Grid item xs={3} textAlign="center">
+
+        <Grid item xs={9}>
           <SearchField />
-        </Grid>
-        <Grid item xs={6}>
+
           <Button
             variant="contained"
             color="secondary"
@@ -37,6 +37,7 @@ export const Header: React.FC = () => {
             + Создать запись
           </Button>
         </Grid>
+
         <Grid item xs={2}>
           <Stack direction="row" spacing={3} justifyContent={"end"}>
             <IconButton>

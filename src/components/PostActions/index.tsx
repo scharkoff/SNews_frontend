@@ -7,9 +7,13 @@ import RepeatIcon from "@mui/icons-material/Repeat";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import ShareIcon from "@mui/icons-material/Share";
 
-export const PostActions: React.FC = () => {
+interface IPostActions {
+  maxWidth?: number;
+}
+
+export const PostActions: React.FC<IPostActions> = ({ maxWidth }) => {
   return (
-    <div className={styles.actionsWrapper}>
+    <div className={styles.actionsWrapper} style={{ maxWidth }}>
       <IconButton>
         <ChatBubbleOutlineIcon />
       </IconButton>

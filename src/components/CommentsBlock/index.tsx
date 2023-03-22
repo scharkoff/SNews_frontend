@@ -4,25 +4,45 @@ import Typography from "@mui/material/Typography";
 import Stack from "@mui/material/Stack";
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import { Comment } from "../Comment/index";
+import ListItem from "@mui/material/ListItem";
+import ListItemText from "@mui/material/ListItemText";
+import ListItemAvatar from "@mui/material/ListItemAvatar";
+import Avatar from "@mui/material/Avatar";
+
+const comments = [
+  {
+    user: {
+      fullName: "Алекс Хоппер",
+    },
+    avatarUrl: "./",
+    text: "Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем",
+    post: {
+      title: "Какое-то название",
+    },
+  },
+  {
+    user: {
+      fullName: "Алекс Хоппер",
+    },
+    avatarUrl: "./",
+    text: "Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем",
+    post: {
+      title: "Какое-то название",
+    },
+  },
+  {
+    user: {
+      fullName: "Алекс Хоппер",
+    },
+    avatarUrl: "./",
+    text: "Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем",
+    post: {
+      title: "Какое-то название",
+    },
+  },
+];
 
 export const CommentsBlock: React.FC = () => {
-  const comments = [
-    {
-      avatarUrl: "./",
-      userName: "Алекс Хоппер",
-      text: "Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем",
-    },
-    {
-      avatarUrl: "./",
-      userName: "Алекс Хоппер",
-      text: "Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем",
-    },
-    {
-      avatarUrl: "./",
-      userName: "Алекс Хоппер",
-      text: "Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем",
-    },
-  ];
   return (
     <div>
       <Stack direction="row" spacing={2} alignItems={"center"} marginBottom={2}>
@@ -39,13 +59,7 @@ export const CommentsBlock: React.FC = () => {
         }}
       >
         {comments.map((comment, index) => {
-          return (
-            <Comment
-              userName={comment.userName}
-              text={comment.text}
-              key={index}
-            />
-          );
+          return <Comment {...comment} key={index} />;
         })}
       </List>
     </div>
