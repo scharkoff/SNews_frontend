@@ -3,7 +3,7 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Comment } from '../Comment/index';
+import { Comment } from '../../entities/Comment/index';
 import styles from './CommentsBlock.module.scss';
 
 const comments = [

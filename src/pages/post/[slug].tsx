@@ -1,10 +1,10 @@
 import React from 'react';
 import { MainLayout } from '../../layouts/MainLayout/index';
-import { FullPost } from '@/components/FullPost';
+import { FullPost } from '@/widgets/FullPost';
 
-export default function Home() {
+export default function Post() {
   return (
-    <MainLayout contentFullWidth={false}>
+    <MainLayout>
       <FullPost />
     </MainLayout>
   );

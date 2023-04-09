@@ -5,7 +5,7 @@ import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
-import { Post } from '../Post';
+import { Post } from '../../entities/Post';
 
 interface UserProfileProps {
   userId: number;
@@ -17,7 +17,7 @@ const user = {
   registerData: '2 января 2023',
 };
 
-export default function UserProfile({ userId }: UserProfileProps) {
+const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
   const [value, setValue] = React.useState<number>(0);
 
   return (
@@ -82,4 +82,6 @@ export default function UserProfile({ userId }: UserProfileProps) {
       </Grid>
     </Grid>
   );
-}
+};
+
+export default UserProfile;

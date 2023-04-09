@@ -1,0 +1,22 @@
+.searchField {
+  width: 30%;
+  padding: 15px;
+  margin-right: 20px;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+  outline: none;
+  border: none;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+
+  &::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  &:focus {
+    box-shadow: 0 0 5px #ff9800;
+  }
+}

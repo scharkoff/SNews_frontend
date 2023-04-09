@@ -11,13 +11,13 @@ import React from 'react';
 import Typography from '@mui/material/Typography';
 import styles from './Post.module.scss';
 import Image from 'next/image';
-import { PostActions } from '../PostActions/index';
+import { PostActions } from '../../shared/PostActions/index';
 
 export const Post: React.FC = () => {
   return (
     <Paper elevation={0} className={styles.post}>
       <Typography variant="h6" marginBottom={2} className={styles.postTitle}>
-        <Link href="/news/test-123">
+        <Link href="/post/test-123">
           Колос является одной из разновидностей соцветий покрытосеменных
           культур и состоит из удлинённой основной оси с находящимися на ней
           цветками.{' '}

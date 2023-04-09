@@ -1,0 +1,16 @@
+.write {
+  width: 100%;
+  max-width: 940px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 30px auto 0 auto;
+}
+
+.title {
+  outline: none;
+  font-size: 40px;
+  font-weight: bold;
+  background-color: inherit;
+  border: 0;
+}

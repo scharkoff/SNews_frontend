@@ -1,5 +1,5 @@
 import { Button, Grid } from '@mui/material';
-import { SearchField } from '../SearchField/index';
+import { SearchField } from '../../shared/SearchField/index';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import logo from '../../assets/icon.svg';
@@ -30,18 +30,20 @@ export const Header: React.FC = () => {
         <Grid item xs={8} sm={8} md={8} xl={9}>
           <SearchField />
 
-          <Button
-            startIcon={<AddOutlinedIcon fontSize="small" />}
-            variant="contained"
-            color="secondary"
-            sx={{
-              boxShadow: 1,
-              '&:hover': { boxShadow: 1 },
-              textTransform: 'none',
-            }}
-          >
-            Создать запись
-          </Button>
+          <Link href="/write">
+            <Button
+              startIcon={<AddOutlinedIcon fontSize="small" />}
+              variant="contained"
+              color="secondary"
+              sx={{
+                boxShadow: 1,
+                '&:hover': { boxShadow: 1 },
+                textTransform: 'none',
+              }}
+            >
+              Создать запись
+            </Button>
+          </Link>
         </Grid>
 
         <Grid item xs={2} sm={2} md={2} xl={2}>

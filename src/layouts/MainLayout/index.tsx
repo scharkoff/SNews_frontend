@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import styles from './MainLayout.module.scss';
-import { LeftMenu } from '../../components/LeftMenu/index';
-import { CommentsBlock } from '../../components/CommentsBlock/index';
+import { LeftMenu } from '../../widgets/LeftMenu/index';
+import { CommentsBlock } from '../../widgets/CommentsBlock/index';
 
 interface IMainLayoutProps {
   children?: any;
@@ -20,15 +20,23 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
   return (
     <div>
       <Grid container spacing={2} paddingTop={2}>
-        <Grid item md={3} xl={2}>
-          <LeftMenu />
-        </Grid>
-        <Grid item md={6} xl={8}>
+        {!contentFullWidth && (
+          <Grid item md={3} xl={3}>
+            <LeftMenu />
+          </Grid>
+        )}
+        <Grid
+          item
+          md={contentFullWidth ? 12 : 6}
+          xl={contentFullWidth ? 12 : 6}
+        >
           {children}
         </Grid>
-        <Grid item md={3} xl={2}>
-          <CommentsBlock isFullPost={contentFullWidth} hideComments />
-        </Grid>
+        {!contentFullWidth && (
+          <Grid item md={3} xl={3}>
+            <CommentsBlock isFullPost={contentFullWidth} hideComments />
+          </Grid>
+        )}
       </Grid>
     </div>
   );

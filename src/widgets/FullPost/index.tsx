@@ -4,11 +4,12 @@ import Link from 'next/link';
 import Typography from '@mui/material/Typography';
 import styles from './FullPost.module.scss';
 import Image from 'next/image';
-import { PostActions } from '../PostActions/index';
+import { PostActions } from '../../shared/PostActions/index';
 
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import { SmsOutlined as MessageIcon } from '@mui/icons-material';
 import { CommentsBlock } from '../CommentsBlock/index';
+import AddComment from '@/features/AddComment/AddComment';
 
 export const FullPost: React.FC = () => {
   return (
@@ -59,16 +60,25 @@ export const FullPost: React.FC = () => {
               size="small"
               color="secondary"
               variant="contained"
-              sx={{ boxShadow: 1, marginRight: 2 }}
+              sx={{
+                boxShadow: 1,
+                '&:hover': { boxShadow: 1 },
+                textTransform: 'none',
+              }}
             >
               <MessageIcon fontSize="medium" />
             </Button>
 
             <Button
               size="small"
-              color="secondary"
+              color="primary"
               variant="contained"
-              sx={{ boxShadow: 1, textTransform: 'none' }}
+              sx={{
+                boxShadow: 1,
+                '&:hover': { boxShadow: 1 },
+                textTransform: 'none',
+                marginLeft: 2,
+              }}
             >
               <PersonAddIcon sx={{ marginRight: 1 }} fontSize="medium" />
               Подписаться
@@ -77,6 +87,7 @@ export const FullPost: React.FC = () => {
         </div>
       </Paper>
 
+      <AddComment />
       <Paper elevation={0} className={styles.comments}>
         <CommentsBlock isFullPost={true} hideComments={false} />
       </Paper>

@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./SearchField.module.scss";
+import React from 'react';
+import styles from './SearchField.module.scss';
 
 export const SearchField: React.FC = () => {
   return (
