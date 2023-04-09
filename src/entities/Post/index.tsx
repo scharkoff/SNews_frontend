@@ -12,23 +12,25 @@ import Typography from '@mui/material/Typography';
 import styles from './Post.module.scss';
 import Image from 'next/image';
 import { PostActions } from '../../shared/PostActions/index';
+import { PostDTO } from './types/post-dto';
 
-export const Post: React.FC = () => {
+export const Post: React.FC<PostDTO> = ({
+  id,
+  title,
+  body,
+  tags,
+  views,
+  createdAt,
+  updatedAt,
+  user,
+}) => {
   return (
     <Paper elevation={0} className={styles.post}>
       <Typography variant="h6" marginBottom={2} className={styles.postTitle}>
-        <Link href="/post/test-123">
-          Колос является одной из разновидностей соцветий покрытосеменных
-          культур и состоит из удлинённой основной оси с находящимися на ней
-          цветками.{' '}
-        </Link>
+        <Link href={`/post/${id}`}>{title}</Link>
       </Typography>
 
-      <Typography variant="subtitle1">
-        От числа цветков зависит тип колоса. К простому типу относят колос с
-        присутствием одиночных цветов, а сложный представлен уже несколькими
-        цветками.
-      </Typography>
+      <Typography variant="subtitle1">{body.slice(0, 50)}</Typography>
 
       <List
         disablePadding
@@ -42,7 +44,10 @@ export const Post: React.FC = () => {
               variant="rounded"
             />
           </ListItemAvatar>
-          <ListItemText primary="Алекс Хоппер" secondary="9 января, 2014" />
+          <ListItemText
+            primary={user.login}
+            secondary={createdAt.slice(0, 10)}
+          />
         </ListItem>
       </List>
 
