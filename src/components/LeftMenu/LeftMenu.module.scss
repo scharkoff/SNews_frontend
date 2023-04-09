@@ -1,23 +1,23 @@
-@import "../../styles/colors/colors.module";
+@import '../../styles/colors/colors.module';
 
 .listItem {
-    padding: 7px 15px;
-    margin-bottom: 10px;
-    list-style: none;
-    cursor: pointer;
-    border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
+  padding: 7px 15px;
+  margin-bottom: 10px;
+  list-style: none;
+  cursor: pointer;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
 
+  a {
+    width: 100%;
+  }
 }
-
 
 .stack {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
 }
-
-

@@ -5,13 +5,13 @@ import {
   ListItemAvatar,
   ListItemText,
   Paper,
-} from "@mui/material";
-import Link from "next/link";
-import React from "react";
-import Typography from "@mui/material/Typography";
-import styles from "./Post.module.scss";
-import Image from "next/image";
-import { PostActions } from "../PostActions/index";
+} from '@mui/material';
+import Link from 'next/link';
+import React from 'react';
+import Typography from '@mui/material/Typography';
+import styles from './Post.module.scss';
+import Image from 'next/image';
+import { PostActions } from '../PostActions/index';
 
 export const Post: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ export const Post: React.FC = () => {
         <Link href="/news/test-123">
           Колос является одной из разновидностей соцветий покрытосеменных
           культур и состоит из удлинённой основной оси с находящимися на ней
-          цветками.{" "}
+          цветками.{' '}
         </Link>
       </Typography>
 
@@ -32,14 +32,13 @@ export const Post: React.FC = () => {
 
       <List
         disablePadding
-        sx={{ width: "100%", maxWidth: 360, bgcolor: "background.paper" }}
+        sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
       >
         <ListItem disablePadding style={{ marginBottom: 8 }}>
           <ListItemAvatar>
             <Avatar
               sx={{ width: 40, height: 40 }}
-              alt={"Alex"}
-              src="/static/images/avatar/1.jpg"
+              alt={'Alex'}
               variant="rounded"
             />
           </ListItemAvatar>

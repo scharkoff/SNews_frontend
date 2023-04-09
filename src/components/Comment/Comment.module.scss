@@ -1,5 +1,11 @@
-@import "../../styles/colors/colors.module";
+@import '../../styles/colors/colors.module';
 
 .comment {
-    background-color: $background-grey;
+  background-color: $background-grey;
+}
+
+.fullPostComment {
+  width: 100%;
+  background-color: #fff;
+  margin-top: 30px;
 }

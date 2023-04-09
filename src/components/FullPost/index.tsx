@@ -1,14 +1,14 @@
-import React from "react";
-import { Avatar, Button, Paper } from "@mui/material";
-import Link from "next/link";
-import Typography from "@mui/material/Typography";
-import styles from "./FullPost.module.scss";
-import Image from "next/image";
-import { PostActions } from "../PostActions/index";
+import React from 'react';
+import { Avatar, Button, Paper } from '@mui/material';
+import Link from 'next/link';
+import Typography from '@mui/material/Typography';
+import styles from './FullPost.module.scss';
+import Image from 'next/image';
+import { PostActions } from '../PostActions/index';
 
-import PersonAddIcon from "@mui/icons-material/PersonAdd";
-import { SmsOutlined as MessageIcon } from "@mui/icons-material";
-import { CommentsBlock } from "../CommentsBlock/index";
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import { SmsOutlined as MessageIcon } from '@mui/icons-material';
+import { CommentsBlock } from '../CommentsBlock/index';
 
 export const FullPost: React.FC = () => {
   return (
@@ -45,8 +45,7 @@ export const FullPost: React.FC = () => {
           <div className={styles.authorWrapper}>
             <Avatar
               sx={{ width: 35, height: 35 }}
-              alt={"Alex"}
-              src="/static/images/avatar/1.jpg"
+              alt={'Alex'}
               variant="rounded"
             />
             <Typography className={styles.authorName}>Алекс Хоппер</Typography>
@@ -69,7 +68,7 @@ export const FullPost: React.FC = () => {
               size="small"
               color="secondary"
               variant="contained"
-              sx={{ boxShadow: 1, textTransform: "none" }}
+              sx={{ boxShadow: 1, textTransform: 'none' }}
             >
               <PersonAddIcon sx={{ marginRight: 1 }} fontSize="medium" />
               Подписаться
@@ -79,7 +78,7 @@ export const FullPost: React.FC = () => {
       </Paper>
 
       <Paper elevation={0} className={styles.comments}>
-        <CommentsBlock />
+        <CommentsBlock isFullPost={true} hideComments={false} />
       </Paper>
     </div>
   );
