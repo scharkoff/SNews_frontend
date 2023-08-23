@@ -30,7 +30,7 @@ export const Post: React.FC<PostDTO> = ({
         <Link href={`/post/${id}`}>{title}</Link>
       </Typography>
 
-      <Typography variant="subtitle1">{body.slice(0, 50)}</Typography>
+      <Typography variant="subtitle1">{body?.slice(0, 50)}</Typography>
 
       <List
         disablePadding
@@ -46,7 +46,7 @@ export const Post: React.FC<PostDTO> = ({
           </ListItemAvatar>
           <ListItemText
             primary={user.login}
-            secondary={createdAt.slice(0, 10)}
+            secondary={createdAt?.slice(0, 10)}
           />
         </ListItem>
       </List>
