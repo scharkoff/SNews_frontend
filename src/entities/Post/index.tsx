@@ -1,3 +1,10 @@
+import Link from 'next/link';
+import React from 'react';
+import Typography from '@mui/material/Typography';
+import styles from './Post.module.scss';
+import Image from 'next/image';
+import { PostActions } from '../../shared/PostActions/index';
+import { PostDTO } from './types/post-dto';
 import {
   Avatar,
   List,
@@ -6,13 +13,6 @@ import {
   ListItemText,
   Paper,
 } from '@mui/material';
-import Link from 'next/link';
-import React from 'react';
-import Typography from '@mui/material/Typography';
-import styles from './Post.module.scss';
-import Image from 'next/image';
-import { PostActions } from '../../shared/PostActions/index';
-import { PostDTO } from './types/post-dto';
 
 export const Post: React.FC<PostDTO> = ({
   id,
@@ -45,7 +45,7 @@ export const Post: React.FC<PostDTO> = ({
             />
           </ListItemAvatar>
           <ListItemText
-            primary={user.login}
+            primary={user?.login}
             secondary={createdAt?.slice(0, 10)}
           />
         </ListItem>

@@ -21,19 +21,20 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
     <div>
       <Grid container spacing={2} paddingTop={2}>
         {!contentFullWidth && (
-          <Grid item md={3} xl={3}>
+          <Grid item xs={12} md={3} xl={3}>
             <LeftMenu />
           </Grid>
         )}
         <Grid
           item
+          xs={12}
           md={contentFullWidth ? 12 : 6}
           xl={contentFullWidth ? 12 : 6}
         >
           {children}
         </Grid>
         {!contentFullWidth && (
-          <Grid item md={3} xl={3}>
+          <Grid item xs={12} md={3} xl={3}>
             <CommentsBlock isFullPost={contentFullWidth} hideComments />
           </Grid>
         )}

@@ -1,7 +1,7 @@
 import React from 'react';
+import axios from '@/configs/axios';
 import { MainLayout } from '@/layouts/MainLayout';
 import { Post } from '../entities/Post/index';
-import axios from '@/configs/axios';
 import { PostDTO } from '@/entities/Post/types/post-dto';
 
 interface HomeProps {
@@ -14,15 +14,15 @@ export default function Home({ posts }: HomeProps) {
       <MainLayout>
         {posts.map((post: PostDTO) => (
           <Post
-            key={post.id}
-            id={post.id}
-            title={post.title}
-            body={post.body}
-            views={post.views}
-            tags={post.tags}
-            createdAt={post.createdAt}
-            updatedAt={post.updatedAt}
-            user={post.user}
+            key={post?.id}
+            id={post?.id}
+            title={post?.title}
+            body={post?.body}
+            views={post?.views}
+            tags={post?.tags}
+            createdAt={post?.createdAt}
+            updatedAt={post?.updatedAt}
+            user={post?.user}
           />
         ))}
       </MainLayout>

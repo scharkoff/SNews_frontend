@@ -1,34 +1,29 @@
 import React from 'react';
-import { Avatar, Button, Paper } from '@mui/material';
-import Link from 'next/link';
 import Typography from '@mui/material/Typography';
 import styles from './FullPost.module.scss';
 import Image from 'next/image';
-import { PostActions } from '../../shared/PostActions/index';
-
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import AddComment from '@/features/AddComment/AddComment';
+import { PostActions } from '../../shared/PostActions/index';
+import { Avatar, Button, Paper } from '@mui/material';
 import { SmsOutlined as MessageIcon } from '@mui/icons-material';
 import { CommentsBlock } from '../CommentsBlock/index';
-import AddComment from '@/features/AddComment/AddComment';
+import { PostDTO } from '@/entities/Post/types/post-dto';
 
-export const FullPost: React.FC = () => {
+interface FullPostProps {
+  post: PostDTO;
+}
+
+export default function FullPost({ post }: FullPostProps) {
   return (
     <div>
       <Paper elevation={0} className={styles.post}>
         <Typography variant="h4" marginBottom={2} className={styles.postTitle}>
-          Колос является одной из разновидностей соцветий покрытосеменных
-          культур и состоит из удлинённой основной оси с находящимися на ней
-          цветками.
+          {post?.title}
         </Typography>
 
         <Typography variant="subtitle1" marginBottom={2}>
-          От числа цветков зависит тип колоса. К простому типу относят колос с
-          присутствием одиночных цветов, а сложный представлен уже несколькими
-          цветками. От числа цветков зависит тип колоса. К простому типу относят
-          колос с присутствием одиночных цветов, а сложный представлен уже
-          несколькими цветками. От числа цветков зависит тип колоса. К простому
-          типу относят колос с присутствием одиночных цветов, а сложный
-          представлен уже несколькими цветками.
+          {post?.body}
         </Typography>
 
         <div className={styles.imageWrapper}>
@@ -49,9 +44,8 @@ export const FullPost: React.FC = () => {
               alt={'Alex'}
               variant="rounded"
             />
-            <Typography className={styles.authorName}>Алекс Хоппер</Typography>
-            <Typography className={styles.authorSubs} variant="subtitle1">
-              +1963
+            <Typography className={styles.authorName}>
+              {post?.user?.login}
             </Typography>
           </div>
 
@@ -93,4 +87,4 @@ export const FullPost: React.FC = () => {
       </Paper>
     </div>
   );
-};
+}
