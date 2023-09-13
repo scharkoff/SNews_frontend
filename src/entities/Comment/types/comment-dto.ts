@@ -1,12 +1,11 @@
+import { PostDTO } from '@/entities/Post/types/post-dto';
 import { UserDTO } from '@/entities/User/types/user-dto';
 
-export interface PostDTO {
+export interface CommentDTO {
   id: number;
-  title: string;
-  body: string;
-  tags: string;
-  views: number;
+  text: string;
   createdAt: string;
   updatedAt: string;
   user: UserDTO;
+  post: PostDTO;
 }

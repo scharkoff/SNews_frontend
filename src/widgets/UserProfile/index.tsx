@@ -1,14 +1,20 @@
-import { Button, Grid, Paper, Tab, Tabs } from '@mui/material';
 import React from 'react';
 import styles from './UserProfile.module.scss';
 import Avatar from '@mui/material/Avatar';
 import Typography from '@mui/material/Typography';
 import SmsOutlinedIcon from '@mui/icons-material/SmsOutlined';
 import ManageAccountsOutlinedIcon from '@mui/icons-material/ManageAccountsOutlined';
-import { Post } from '../../entities/Post';
+import Comment from '@/entities/Comment';
+import { Button, Grid, Paper, Tab, Tabs } from '@mui/material';
+import { PostDTO } from '@/entities/Post/types/post-dto';
+import { Post } from '@/entities/Post';
+import { CommentDTO } from '@/entities/Comment/types/comment-dto';
+import { useStore } from '@/store';
 
 interface UserProfileProps {
   userId: number;
+  posts: PostDTO[];
+  comments: CommentDTO[];
 }
 
 const user = {
@@ -17,7 +23,12 @@ const user = {
   registerData: '2 января 2023',
 };
 
-const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
+export default function UserProfile({
+  userId,
+  posts,
+  comments,
+}: UserProfileProps) {
+  const store = useStore();
   const [value, setValue] = React.useState<number>(0);
 
   return (
@@ -68,11 +79,34 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
       </Grid>
 
       <Grid item xs={8} sm={8} md={8} xl={8}>
-        <div className={styles.userPosts}>
-          <Post />
-          <Post />
-          <Post />
-        </div>
+        {value === 0 &&
+          posts?.map((post) => (
+            <Post
+              key={post?.id}
+              id={post?.id}
+              title={post?.title}
+              body={post?.body}
+              tags={post?.tags}
+              views={post?.views}
+              createdAt={post?.createdAt}
+              updatedAt={post?.updatedAt}
+              user={post?.user}
+            />
+          ))}
+
+        {value === 1 &&
+          comments?.map((comment) => (
+            <Comment
+              key={comment?.id}
+              text={comment?.text}
+              createdAt={comment?.createdAt}
+              updatedAt={comment?.updatedAt}
+              post={comment?.post}
+              user={comment?.user}
+              isFullPost={false}
+            />
+          ))}
+        {value === 2 && 'Закладки'}
       </Grid>
 
       <Grid item xs={4} sm={4} md={4} xl={4}>
@@ -82,6 +116,4 @@ const UserProfile: React.FC<UserProfileProps> = ({ userId }) => {
       </Grid>
     </Grid>
   );
-};
-
-export default UserProfile;
+}

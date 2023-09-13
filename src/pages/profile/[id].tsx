@@ -1,15 +1,32 @@
-import { MainLayout } from '@/layouts/MainLayout';
 import React from 'react';
-import UserProfile from '../../widgets/UserProfile/index';
+import axios from '@/configs/axios';
+import UserProfile from '@/widgets/UserProfile';
+import { MainLayout } from '@/layouts/MainLayout';
+import { PostDTO } from '@/entities/Post/types/post-dto';
+import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 
 interface ProfilePageProps {
   userId: number;
+  posts: PostDTO[];
+  comments: CommentDTO[];
 }
 
-export default function Profile({ userId }: ProfilePageProps) {
+export default function Profile({ userId, posts, comments }: ProfilePageProps) {
   return (
     <MainLayout>
-      <UserProfile userId={userId} />
+      <UserProfile userId={userId} posts={posts} comments={comments} />
     </MainLayout>
   );
+}
+
+export async function getServerSideProps() {
+  const posts = await axios.get(`/posts/user/${1}`);
+  const comments = await axios.get(`/comments/user/${1}`);
+
+  return {
+    props: {
+      posts: posts.data,
+      comments: comments.data,
+    },
+  };
 }

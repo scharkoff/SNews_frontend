@@ -3,8 +3,8 @@ import List from '@mui/material/List';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
-import { Comment } from '../../entities/Comment/index';
 import styles from './CommentsBlock.module.scss';
+import Comment from '@/entities/Comment';
 
 const comments = [
   {
@@ -66,9 +66,9 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = ({
           bgcolor: 'background.paper',
         }}
       >
-        {comments.map((comment, index) => {
+        {/* {comments.map((comment, index) => {
           return <Comment {...comment} key={index} isFullPost={isFullPost} />;
-        })}
+        })} */}
       </List>
     </div>
   );

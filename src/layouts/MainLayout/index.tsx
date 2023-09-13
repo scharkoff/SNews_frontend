@@ -1,6 +1,6 @@
-import { Grid } from '@mui/material';
 import React from 'react';
 import styles from './MainLayout.module.scss';
+import { Grid } from '@mui/material';
 import { LeftMenu } from '../../widgets/LeftMenu/index';
 import { CommentsBlock } from '../../widgets/CommentsBlock/index';
 
