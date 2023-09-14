@@ -1,14 +1,21 @@
-import { observable, action } from 'mobx';
+import { observable, action, makeObservable } from 'mobx';
 import { createContext, useContext } from 'react';
 
 class GlobalStore {
-  @observable count = 0;
+  @observable
+  count = 0;
 
-  @action increment() {
+  constructor() {
+    makeObservable(this);
+  }
+
+  @action
+  increment() {
     this.count++;
   }
 
-  @action decrement() {
+  @action
+  decrement() {
     this.count--;
   }
 }

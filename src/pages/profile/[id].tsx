@@ -6,15 +6,14 @@ import { PostDTO } from '@/entities/Post/types/post-dto';
 import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 
 interface ProfilePageProps {
-  userId: number;
   posts: PostDTO[];
   comments: CommentDTO[];
 }
 
-export default function Profile({ userId, posts, comments }: ProfilePageProps) {
+export default function Profile({ posts, comments }: ProfilePageProps) {
   return (
     <MainLayout>
-      <UserProfile userId={userId} posts={posts} comments={comments} />
+      <UserProfile posts={posts} comments={comments} />
     </MainLayout>
   );
 }

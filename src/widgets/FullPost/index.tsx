@@ -4,17 +4,19 @@ import styles from './FullPost.module.scss';
 import Image from 'next/image';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import AddComment from '@/features/AddComment/AddComment';
+import Comment from '@/entities/Comment';
 import { PostActions } from '../../shared/PostActions/index';
 import { Avatar, Button, Paper } from '@mui/material';
 import { SmsOutlined as MessageIcon } from '@mui/icons-material';
-import { CommentsBlock } from '../CommentsBlock/index';
 import { PostDTO } from '@/entities/Post/types/post-dto';
+import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 
 interface FullPostProps {
   post: PostDTO;
+  comments: CommentDTO[];
 }
 
-export default function FullPost({ post }: FullPostProps) {
+export default function FullPost({ post, comments }: FullPostProps) {
   return (
     <div>
       <Paper elevation={0} className={styles.post}>
@@ -81,9 +83,22 @@ export default function FullPost({ post }: FullPostProps) {
         </div>
       </Paper>
 
-      <AddComment />
       <Paper elevation={0} className={styles.comments}>
-        <CommentsBlock isFullPost={true} hideComments={false} />
+        <Typography variant="h6" marginBottom={2}>
+          Комментарии к записи
+        </Typography>
+
+        {comments?.map((comment) => (
+          <Comment
+            key={comment?.id}
+            text={comment?.text}
+            createdAt={comment?.createdAt}
+            updatedAt={comment?.updatedAt}
+            post={comment?.post}
+            user={comment?.user}
+            isFullPost={false}
+          />
+        ))}
       </Paper>
     </div>
   );

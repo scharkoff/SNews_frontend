@@ -10,9 +10,10 @@ import { PostDTO } from '@/entities/Post/types/post-dto';
 import { Post } from '@/entities/Post';
 import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 import { useStore } from '@/store';
+import { observer } from 'mobx-react';
+import { useUserStore } from '@/stores/UserStore';
 
 interface UserProfileProps {
-  userId: number;
   posts: PostDTO[];
   comments: CommentDTO[];
 }
@@ -23,12 +24,9 @@ const user = {
   registerData: '2 января 2023',
 };
 
-export default function UserProfile({
-  userId,
-  posts,
-  comments,
-}: UserProfileProps) {
-  const store = useStore();
+const UserProfile = observer(({ posts, comments }: UserProfileProps) => {
+  const userStore = useUserStore();
+
   const [value, setValue] = React.useState<number>(0);
 
   return (
@@ -94,18 +92,21 @@ export default function UserProfile({
             />
           ))}
 
-        {value === 1 &&
-          comments?.map((comment) => (
-            <Comment
-              key={comment?.id}
-              text={comment?.text}
-              createdAt={comment?.createdAt}
-              updatedAt={comment?.updatedAt}
-              post={comment?.post}
-              user={comment?.user}
-              isFullPost={false}
-            />
-          ))}
+        {value === 1 && (
+          <Paper elevation={0} className={styles.block}>
+            {comments?.map((comment) => (
+              <Comment
+                key={comment?.id}
+                text={comment?.text}
+                createdAt={comment?.createdAt}
+                updatedAt={comment?.updatedAt}
+                post={comment?.post}
+                user={comment?.user}
+                isFullPost={false}
+              />
+            ))}
+          </Paper>
+        )}
         {value === 2 && 'Закладки'}
       </Grid>
 
@@ -116,4 +117,6 @@ export default function UserProfile({
       </Grid>
     </Grid>
   );
-}
+});
+
+export default UserProfile;
