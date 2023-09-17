@@ -3,6 +3,9 @@
 .comment {
   background-color: $background-grey;
   margin-bottom: 10px;
+  padding: 2px 10px;
+  border-radius: 10px;
+  border: 1px dotted #e2e2e2;
 }
 
 .fullPostComment {

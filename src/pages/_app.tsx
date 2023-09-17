@@ -1,4 +1,5 @@
 import Meta from '../utils/Meta';
+import Footer from '@/widgets/Footer/Footer';
 import { ThemeProvider } from '@mui/material';
 import { theme } from 'theme';
 import { Header } from '../widgets/Header/index';
@@ -17,6 +18,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider theme={theme}>
         <Header />
         <Component {...pageProps} />
+        <Footer />
       </ThemeProvider>
     </>
   );
