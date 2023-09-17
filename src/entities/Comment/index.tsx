@@ -7,6 +7,8 @@ import clsx from 'clsx';
 import styles from './Comment.module.scss';
 import { UserDTO } from '../User/types/user-dto';
 import { PostDTO } from '../Post/types/post-dto';
+import formatDate from '@/utils/formatDate';
+import Link from 'next/link';
 
 interface CommentProps {
   user: UserDTO;
@@ -25,21 +27,41 @@ export default function Comment({
   updatedAt,
   isFullPost,
 }: CommentProps) {
+  console.log(isFullPost);
   return (
-    <ListItem
-      alignItems="flex-start"
-      disablePadding
+    <div
       className={clsx(styles.comment, {
         [styles.fullPostComment]: isFullPost,
       })}
     >
-      <ListItemAvatar>
-        <Avatar alt={user?.login} variant="rounded" />
-      </ListItemAvatar>
-      <ListItemText
-        primary={user?.login}
-        secondary={<React.Fragment>{text}</React.Fragment>}
-      />
-    </ListItem>
+      <ListItem alignItems="flex-start" disablePadding>
+        <ListItemAvatar>
+          <Avatar alt={user?.login} variant="rounded" />
+        </ListItemAvatar>
+        <ListItemText
+          primary={user?.login}
+          secondary={<React.Fragment>{text}</React.Fragment>}
+        />
+      </ListItem>
+      <div className={styles.actions}>
+        <div className={styles.time}>{formatDate(createdAt)}</div>
+
+        <div
+          className={styles.link}
+          style={{ display: !isFullPost ? 'none' : 'inline-block' }}
+        >
+          Ответить
+        </div>
+
+        <Link href={`/post/${post?.id}`}>
+          <div
+            className={styles.link}
+            style={{ display: isFullPost ? 'none' : 'inline-block' }}
+          >
+            Перейти к записи
+          </div>
+        </Link>
+      </div>
+    </div>
   );
 }

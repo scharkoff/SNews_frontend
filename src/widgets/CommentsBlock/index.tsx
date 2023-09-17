@@ -5,48 +5,16 @@ import Stack from '@mui/material/Stack';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import styles from './CommentsBlock.module.scss';
 import Comment from '@/entities/Comment';
-
-const comments = [
-  {
-    user: {
-      fullName: 'Алекс Хоппер',
-    },
-    avatarUrl: './',
-    text: 'Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем',
-    post: {
-      title: 'Какое-то название',
-    },
-  },
-  {
-    user: {
-      fullName: 'Алекс Хоппер',
-    },
-    avatarUrl: './',
-    text: 'Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем',
-    post: {
-      title: 'Какое-то название',
-    },
-  },
-  {
-    user: {
-      fullName: 'Алекс Хоппер',
-    },
-    avatarUrl: './',
-    text: 'Я написал какой-то комментарий, чтобы проверить как это будет выглядеть в дальнейшем',
-    post: {
-      title: 'Какое-то название',
-    },
-  },
-];
+import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 
 interface CommentsBlockProps {
   isFullPost: boolean;
-  hideComments: boolean;
+  lastComments: CommentDTO[];
 }
 
 export const CommentsBlock: React.FC<CommentsBlockProps> = ({
   isFullPost,
-  hideComments,
+  lastComments,
 }) => {
   return (
     <div>
@@ -66,9 +34,9 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = ({
           bgcolor: 'background.paper',
         }}
       >
-        {/* {comments.map((comment, index) => {
+        {lastComments?.map((comment, index) => {
           return <Comment {...comment} key={index} isFullPost={isFullPost} />;
-        })} */}
+        })}
       </List>
     </div>
   );

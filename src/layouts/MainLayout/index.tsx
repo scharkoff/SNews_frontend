@@ -3,19 +3,18 @@ import styles from './MainLayout.module.scss';
 import { Grid } from '@mui/material';
 import { LeftMenu } from '../../widgets/LeftMenu/index';
 import { CommentsBlock } from '../../widgets/CommentsBlock/index';
+import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 
 interface IMainLayoutProps {
-  children?: any;
-  hideComments?: boolean;
+  children: any;
+  lastComments?: CommentDTO[];
   contentFullWidth?: boolean;
-  className?: string;
 }
 
 export const MainLayout: React.FC<IMainLayoutProps> = ({
   children,
+  lastComments,
   contentFullWidth = false,
-  hideComments,
-  className,
 }) => {
   return (
     <div>
@@ -35,7 +34,10 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
         </Grid>
         {!contentFullWidth && (
           <Grid item xs={12} md={3} xl={3}>
-            <CommentsBlock isFullPost={contentFullWidth} hideComments />
+            <CommentsBlock
+              lastComments={lastComments || []}
+              isFullPost={contentFullWidth}
+            />
           </Grid>
         )}
       </Grid>

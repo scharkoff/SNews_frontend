@@ -3,16 +3,18 @@ import axios from '@/configs/axios';
 import { MainLayout } from '@/layouts/MainLayout';
 import { Post } from '../entities/Post/index';
 import { PostDTO } from '@/entities/Post/types/post-dto';
+import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 
 interface HomeProps {
   posts: PostDTO[];
+  lastComments: CommentDTO[];
 }
 
-export default function Home({ posts }: HomeProps) {
+export default function Home({ posts, lastComments }: HomeProps) {
   return (
     <>
-      <MainLayout>
-        {posts.map((post: PostDTO) => (
+      <MainLayout lastComments={lastComments}>
+        {posts?.map((post: PostDTO) => (
           <Post
             key={post?.id}
             id={post?.id}
@@ -32,10 +34,12 @@ export default function Home({ posts }: HomeProps) {
 
 export async function getServerSideProps() {
   const posts = await axios.get('/posts');
+  const lastComments = await axios.get('/comments/lasts/5');
 
   return {
     props: {
       posts: posts.data,
+      lastComments: lastComments.data,
     },
   };
 }

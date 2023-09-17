@@ -9,11 +9,12 @@ import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 export interface PostProps {
   post: PostDTO;
   comments: CommentDTO[];
+  lastComments: CommentDTO[];
 }
 
-export default function Post({ post, comments }: PostProps) {
+export default function Post({ post, comments, lastComments }: PostProps) {
   return (
-    <MainLayout>
+    <MainLayout lastComments={lastComments}>
       <FullPost post={post} comments={comments} />
     </MainLayout>
   );
@@ -22,11 +23,13 @@ export default function Post({ post, comments }: PostProps) {
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const post = await axios.get(`/posts/${context?.params?.id}`);
   const comments = await axios.get(`/comments/post/${context?.params?.id}`);
+  const lastComments = await axios.get('/comments/lasts/5');
 
   return {
     props: {
       post: post.data,
       comments: comments.data,
+      lastComments: lastComments.data,
     },
   };
 }

@@ -96,7 +96,7 @@ export default function FullPost({ post, comments }: FullPostProps) {
             updatedAt={comment?.updatedAt}
             post={comment?.post}
             user={comment?.user}
-            isFullPost={false}
+            isFullPost
           />
         ))}
       </Paper>

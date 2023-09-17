@@ -1,11 +1,33 @@
 @import '../../styles/colors/colors.module';
 
 .comment {
-  background-color: inherit;
+  background-color: $background-grey;
+  margin-bottom: 10px;
 }
 
 .fullPostComment {
   width: 100%;
   background-color: #fff;
-  margin-top: 30px;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-size: 12px;
+  color: #4b4b4b;
+}
+
+.link {
+  margin-left: 10px;
+  color: $primary;
+  font-size: 12px;
+  cursor: pointer;
+  padding: 2px;
+
+  &:hover {
+    color: $primary-dark;
+  }
 }
