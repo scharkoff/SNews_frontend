@@ -13,6 +13,7 @@ import {
   ListItemText,
   Paper,
 } from '@mui/material';
+import formatDate from '@/utils/formatDate';
 
 export const Post: React.FC<PostDTO> = ({
   id,
@@ -46,7 +47,7 @@ export const Post: React.FC<PostDTO> = ({
           </ListItemAvatar>
           <ListItemText
             primary={user?.login}
-            secondary={createdAt?.slice(0, 10)}
+            secondary={formatDate(createdAt)}
           />
         </ListItem>
       </List>

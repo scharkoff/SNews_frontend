@@ -1,5 +1,3 @@
-import { Button, Grid } from '@mui/material';
-import { SearchField } from '../../shared/SearchField/index';
 import styles from './Header.module.scss';
 import Image from 'next/image';
 import logo from '../../assets/icon.svg';
@@ -11,23 +9,20 @@ import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import Link from 'next/link';
+import SearchField from '@/shared/SearchField';
+import { Button, Grid } from '@mui/material';
 
 export const Header: React.FC = () => {
   return (
     <>
       <Grid container spacing={2} className={styles.header}>
-        <Grid item xs={2} sm={2} md={2} xl={1}>
-          <Stack direction="row" spacing={2} alignItems={'center'}>
-            <IconButton>
-              <MenuIcon fontSize="large" />
-            </IconButton>
-            <Link href="/">
-              <Image src={logo} width={50} height={50} alt="logo" />
-            </Link>
-          </Stack>
+        <Grid item xs={1} sm={1} md={1} xl={1}>
+          <Link href="/">
+            <Image src={logo} width={50} height={50} alt="logo" />
+          </Link>
         </Grid>
 
-        <Grid item xs={8} sm={8} md={8} xl={9}>
+        <Grid item xs={9} sm={9} md={9} xl={9}>
           <SearchField />
 
           <Link href="/write">

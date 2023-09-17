@@ -17,7 +17,7 @@ export const MainLayout: React.FC<IMainLayoutProps> = ({
   contentFullWidth = false,
 }) => {
   return (
-    <div>
+    <div className={styles.main}>
       <Grid container spacing={2} paddingTop={2}>
         {!contentFullWidth && (
           <Grid item xs={12} md={3} xl={3}>

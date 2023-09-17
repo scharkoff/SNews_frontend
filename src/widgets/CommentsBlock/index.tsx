@@ -19,7 +19,7 @@ export const CommentsBlock: React.FC<CommentsBlockProps> = ({
   return (
     <div>
       <Stack direction="row" spacing={2} alignItems={'center'} marginBottom={2}>
-        <Typography variant="h6">Комментарии</Typography>
+        <Typography variant="h6">Последние комментарии</Typography>
         <KeyboardArrowRightIcon />
       </Stack>
 

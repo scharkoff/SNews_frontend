@@ -5,6 +5,8 @@ import { createContext, useContext } from 'react';
 
 class UserStore {
   @observable userData: UserDTO | null = null;
+  @observable isLoading: boolean = false;
+  @observable error: any = null;
 
   constructor() {
     makeObservable(this);
@@ -12,17 +14,31 @@ class UserStore {
 
   @action
   async login(data: any) {
-    const response = await axios.post('auth/login', data);
-    this.userData = response.data;
+    try {
+      this.isLoading = true;
+      const response = await axios.post('auth/login', data);
+      this.isLoading = false;
+      this.userData = response.data;
+    } catch (error) {
+      this.error = error;
+    }
   }
 
   @action
   async register(data: any) {
-    const response = await axios.post('auth/register', data);
-    this.userData = response.data;
+    try {
+      this.isLoading = true;
+      const response = await axios.post('auth/register', data);
+      this.isLoading = false;
+      this.userData = response.data;
+    } catch (error) {
+      this.error = error;
+    }
   }
 }
 
 const UserContext = createContext(new UserStore());
 
-export const useUserStore = () => useContext(UserContext);
+const useUserStore = () => useContext(UserContext);
+
+export default useUserStore;

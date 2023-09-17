@@ -27,7 +27,6 @@ export default function Comment({
   updatedAt,
   isFullPost,
 }: CommentProps) {
-  console.log(isFullPost);
   return (
     <div
       className={clsx(styles.comment, {

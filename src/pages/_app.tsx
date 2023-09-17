@@ -3,6 +3,7 @@ import Footer from '@/widgets/Footer/Footer';
 import { ThemeProvider } from '@mui/material';
 import { theme } from 'theme';
 import { Header } from '../widgets/Header/index';
+import { Provider } from 'mobx-react';
 import type { AppProps } from 'next/app';
 import '../styles/globals.scss';
 

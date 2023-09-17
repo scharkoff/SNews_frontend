@@ -9,9 +9,7 @@ import { Button, Grid, Paper, Tab, Tabs } from '@mui/material';
 import { PostDTO } from '@/entities/Post/types/post-dto';
 import { Post } from '@/entities/Post';
 import { CommentDTO } from '@/entities/Comment/types/comment-dto';
-import { useStore } from '@/store';
 import { observer } from 'mobx-react';
-import { useUserStore } from '@/stores/UserStore';
 
 interface UserProfileProps {
   posts: PostDTO[];
@@ -25,8 +23,6 @@ const user = {
 };
 
 const UserProfile = observer(({ posts, comments }: UserProfileProps) => {
-  const userStore = useUserStore();
-
   const [value, setValue] = React.useState<number>(0);
 
   return (
