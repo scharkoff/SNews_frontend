@@ -8,6 +8,7 @@ import { CommentDTO } from '@/entities/Comment/types/comment-dto';
 import { observer } from 'mobx-react';
 import useSearchStore from '@/stores/SearchStore';
 import searchStore from '@/stores/SearchStore';
+import PageContainer from '@/app/PageContainer';
 
 interface HomeProps {
   posts: PostDTO[];
@@ -18,7 +19,11 @@ function Home({ posts, lastComments }: HomeProps) {
   const { items } = searchStore.searchResults;
 
   return (
-    <>
+    <PageContainer
+      title="Главная страница"
+      keywords={['SNews, новости, посты, обзоры']}
+      description="SNews - новостной блог форум. Делись событиями с друзьями, выкладывай записи, регистрируйся"
+    >
       <MainLayout lastComments={lastComments}>
         {items &&
           items?.map((post: PostDTO) => (
@@ -48,7 +53,7 @@ function Home({ posts, lastComments }: HomeProps) {
           />
         ))}
       </MainLayout>
-    </>
+    </PageContainer>
   );
 }
 

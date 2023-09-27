@@ -19,10 +19,21 @@ export default function SearchPage({
   return (
     <MainLayout lastComments={lastComments}>
       {searchResults?.items?.length == 0 && (
-        <div>
+        <div
+          style={{ textAlign: 'center', margin: '10px 0', fontStyle: 'italic' }}
+        >
           По запросу <b>&laquo;{query}&raquo;</b> ничего не найдено
         </div>
       )}
+
+      {searchResults?.items?.length != 0 && (
+        <div
+          style={{ textAlign: 'center', margin: '10px 0', fontStyle: 'italic' }}
+        >
+          Результат по запросу <b>&laquo;{query}&raquo;</b>
+        </div>
+      )}
+
       {searchResults?.items?.map((post) => (
         <Post
           key={post?.id}
